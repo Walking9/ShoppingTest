@@ -2,11 +2,13 @@ from ppadb.client import Client as AdbClient
 from loguru import logger
 from typing import Dict, Any, Optional
 from src.utils.config_loader import load_config
+from src.adb.transformer import CoordinateTransformer
 
 class DeviceManager:
     def __init__(self, host: str = "127.0.0.1", port: int = 5037):
         self.client = AdbClient(host=host, port=port)
         self.device = None
+        self.transformer: Optional[CoordinateTransformer] = None
 
     def connect(self, serial: Optional[str] = None):
         """连接到指定的 ADB 设备。"""
@@ -26,6 +28,11 @@ class DeviceManager:
                 return False
             
             logger.info(f"成功连接到设备: {self.device.serial}")
+            
+            # 自动初始化坐标转换器
+            wm_size_str = self.device.shell("wm size")
+            self.transformer = CoordinateTransformer.from_wm_size(wm_size_str)
+            
             return True
         except Exception as e:
             logger.exception(f"ADB 连接异常: {e}")
