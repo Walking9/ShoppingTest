@@ -1,0 +1,12 @@
+development_status:
+  1-1-dependency-initialization: "done"
+  1-2-coordinate-normalization: "backlog"
+  1-3-base-adb-actions: "backlog"
+  1-4-cli-launcher: "backlog"
+  epic-1: "in-progress"
+status_definitions:
+  backlog: "Requirement defined, not ready for dev"
+  ready-for-dev: "Detailed story created and validated"
+  in-progress: "Currently being implemented"
+  review: "Implementation complete, pending review"
+  done: "Fully implemented and tested"
