@@ -28,19 +28,16 @@ def verify():
         logger.info(f"屏幕分辨率: {info['resolution']}")
         logger.info(f"归一化中心点 (0.5, 0.5) 对应的物理像素坐标为: {center_pixel}")
         
-        print("
---- 请手动比对 ---")
+        print("\n--- 请手动比对 ---")
         w, h = map(int, info['resolution'].lower().split('x'))
         expected_x, expected_y = w // 2, h // 2
         print(f"预期手动计算中心点: {{'x': {expected_x}, 'y': {expected_y}}}")
         print(f"转换器计算中心点: {center_pixel}")
         
         if center_pixel['x'] == expected_x and center_pixel['y'] == expected_y:
-            print("
-✅ 结果一致！坐标归一化工具在物理设备上运行完美。")
+            print("\n✅ 结果一致！坐标归一化工具在物理设备上运行完美。")
         else:
-            print("
-❌ 结果不一致，请检查分辨率解析逻辑。")
+            print("\n❌ 结果不一致，请检查分辨率解析逻辑。")
     else:
         logger.error("转换器未初始化。")
 
