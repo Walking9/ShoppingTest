@@ -4,7 +4,7 @@ development_status:
   1-3-base-adb-actions: "done"
   1-4-cli-launcher: "done"
   2-1-fast-screen-capture: "done"
-  2-2-image-pre-processing: "backlog"
+  2-2-image-pre-processing: "done"
   2-3-ocr-engine-integration: "backlog"
   2-4-text-search-logic: "backlog"
   epic-1: "done"
