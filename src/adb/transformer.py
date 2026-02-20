@@ -11,26 +11,19 @@ class CoordinateTransformer:
 
     def normalize_to_pixel(self, x_ratio: float, y_ratio: float) -> Dict[str, int]:
         """从归一化比例 (0.0 - 1.0) 转换为物理像素坐标。"""
-        if not (0 <= x_ratio <= 1.0 and 0 <= y_ratio <= 1.0):
-            logger.warning(f"归一化坐标超出范围: ({x_ratio}, {y_ratio})")
-        
         pixel_x = int(x_ratio * self.width)
         pixel_y = int(y_ratio * self.height)
-        
         return {"x": pixel_x, "y": pixel_y}
 
     def pixel_to_normalize(self, pixel_x: int, pixel_y: int) -> Tuple[float, float]:
         """从物理像素坐标转换为归一化比例 (0.0 - 1.0)。"""
         x_ratio = round(pixel_x / self.width, 4)
         y_ratio = round(pixel_y / self.height, 4)
-        
         return x_ratio, y_ratio
 
     @classmethod
     def from_wm_size(cls, wm_size_str: str):
-        """从 ADB 'wm size' 命令的输出字符串中解析并创建实例。
-        示例输入: 'Physical size: 1080x2400'
-        """
+        """解析 ADB 'wm size' 输出并创建实例。"""
         try:
             size_part = wm_size_str.split(":")[-1].strip()
             w, h = map(int, size_part.lower().split("x"))

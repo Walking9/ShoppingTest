@@ -1,0 +1,23 @@
+# Workflow Status - iMaotai
+# Generated on 2026-02-19
+
+generated: "2026-02-19"
+project: "iMaotai"
+project_type: "brownfield"
+selected_track: "bmad-method"
+field_type: "brownfield"
+workflow_path: "_bmad/bmm/workflows/workflow-status/paths/method-brownfield.yaml"
+
+workflow_status:
+  document-project: "_bmad-output/project-context.md"
+  brainstorm-project: skipped
+  research: skipped
+  product-brief: skipped
+  prd: "_bmad-output/prd.md"
+  create-ux-design: skipped
+  create-architecture: "_bmad-output/architecture.md"
+  create-epics-and-stories: "_bmad-output/epics.md"
+  test-design: recommended
+  validate-architecture: optional
+  implementation-readiness: required
+  sprint-planning: "_bmad-output/project-planning-artifacts/sprint-status.yaml"

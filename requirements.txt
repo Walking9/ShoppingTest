@@ -1,6 +1,4 @@
-pure-python-adb>=0.3.0.dev0
-paddleocr>=2.7.0
-paddlepaddle>=2.5.0
+pure-python-adb>=0.3.0
 opencv-python
 scipy
 numpy

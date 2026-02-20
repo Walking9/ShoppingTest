@@ -1,0 +1,21 @@
+{
+    "device_serial": "2NP0224C18003713",
+    "adb_host": "127.0.0.1",
+    "adb_port": 5037,
+    "webhook_url": "SCT315185TCeU7lTaOGfTguaEhnTuVqWdu",
+    "stealth_level": 3
+}
+
+
+
+  // {
+  //   "step": 3,
+  //   "name": "滑动操作示例",
+  //   "action": "swipe",
+  //   "start_x_ratio": 0.5,
+  //   "start_y_ratio": 0.3,
+  //   "end_x_ratio": 0.5,
+  //   "end_y_ratio": 0.7,
+  //   "duration_ms": 500,
+  //   "delay_after": 1.0
+  // },

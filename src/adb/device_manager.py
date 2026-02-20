@@ -21,7 +21,7 @@ class DeviceManager:
             if serial:
                 self.device = next((d for d in devices if d.serial == serial), None)
             else:
-                self.device = devices[0]  # 默认连接第一个
+                self.device = devices[0]
             
             if not self.device:
                 logger.error(f"未找到序列号为 {serial} 的设备。")
@@ -44,21 +44,11 @@ class DeviceManager:
             return {}
         
         model = self.device.shell("getprop ro.product.model").strip()
-        # 获取分辨率，通常格式为 'Physical size: 1080x2400'
         size_str = self.device.shell("wm size").strip()
         resolution = size_str.split(":")[-1].strip() if ":" in size_str else "Unknown"
         
-        info = {
+        return {
             "serial": self.device.serial,
             "model": model,
             "resolution": resolution
         }
-        logger.info(f"设备信息: {info}")
-        return info
-
-if __name__ == "__main__":
-    # 简易集成测试
-    config = load_config()
-    manager = DeviceManager(host=config['adb_host'], port=config['adb_port'])
-    if manager.connect(serial=config['device_serial']):
-        manager.get_device_info()

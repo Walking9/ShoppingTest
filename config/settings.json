@@ -1,7 +1,7 @@
 {
-    "device_serial": "2NP0224C18003713",
+    "device_serial": "192.168.0.108:5555",
     "adb_host": "127.0.0.1",
     "adb_port": 5037,
-    "webhook_url": "",
-    "stealth_level": 2
+    "webhook_url": "SCT315185TCeU7lTaOGfTguaEhnTuVqWdu",
+    "stealth_level": 4
 }
